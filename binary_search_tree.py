@@ -10,10 +10,10 @@ class BinaryTree(object):
         
     def preorder_search(self,start,find_val):
         if start:
-            if start == find_val:
+            if start.value == find_val:
                 return True
-            self.preorder_search(start.left,find_val)
-            self.preorder_search(start.right,find_val)
+            else:
+                return (self.preorder_search(start.left,find_val) or self.preorder_search(start.right,find_val)) #Why ? so that both function call occurs at once.
         return False
     
     def preorder_print(self,start,traversal):
